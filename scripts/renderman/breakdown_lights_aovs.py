@@ -3,7 +3,7 @@ This script creates a new AOV for lights in the scene and connects it to the ren
 It also assigns light groups to the lights based on their parent hierarchy
 and creates corresponding display channels for each light group.
 """
-# pylint: disable=import-error, E1111, E1121, E1123, W0622, C0301, R0801
+# pylint: disable=import-error, E1111, E1121, E1123, W0622, C0301, R0801, E1131
 
 # Third-Party
 from maya import cmds

@@ -3,7 +3,7 @@ This script creates a new AOV for shadows in the scene and connects it to the re
 It also assigns shadow groups to the lights based on their parent hierarchy
 and creates corresponding display channels for each shadow group.
 """
-# pylint: disable=import-error, E1111, E1121, E1123, W0622, C0301, R0801
+# pylint: disable=import-error, E1111, E1121, E1123, W0622, C0301, R0801, E1131
 
 # Third-Party
 from maya import cmds
