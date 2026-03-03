@@ -58,7 +58,7 @@ class CreateShadowAovs():
     def connect_aovs(self):
         """Create AOV nodes and prepare them for connection."""
 
-        lgt_display = self.create_node(
+        shadow_display = self.create_node(
             node_type="rmanDisplay",
             node_name=self.pass_name
         )
@@ -87,11 +87,11 @@ class CreateShadowAovs():
 
         cmds.connectAttr(
             f"{lgt_open_exr}.message",
-            f"{lgt_display}.displayType",
+            f"{shadow_display}.displayType",
         )
 
         cmds.connectAttr(
-            f"{lgt_display}.message",
+            f"{shadow_display}.message",
             f"{rman_globals[0]}.displays[{next_index}]",
         )
 
@@ -118,10 +118,10 @@ class CreateShadowAovs():
                 cmds.setAttr(f"{light}.lightGroup", f"{parents}", type="string")
                 name = f"{parents.lower()}{self.rman_display_channel_ext}"
                 if not cmds.objExists(name):
-                    lgt_display = cmds.createNode('rmanDisplayChannel', name=name)
-                    cmds.setAttr(f"{lgt_display}.channelSource", "lpe:shadows;C[DS][L]", type="string")
-                    cmds.connectAttr(f"{lgt_display}.message", f"{self.pass_name}.displayChannels[{lgt_count}]")
-                    cmds.setAttr(f"{lgt_display}.lpeLightGroup", f"{parents}", type="string")
+                    shadow_display = cmds.createNode('rmanDisplayChannel', name=name)
+                    cmds.setAttr(f"{shadow_display}.channelSource", "lpe:shadows;C[DS][L]", type="string")
+                    cmds.connectAttr(f"{shadow_display}.message", f"{self.pass_name}.displayChannels[{lgt_count}]")
+                    cmds.setAttr(f"{shadow_display}.lpeLightGroup", f"{parents}", type="string")
                     self.update_render_settings()
 
 def main():
