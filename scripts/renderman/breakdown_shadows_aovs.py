@@ -10,18 +10,13 @@ from maya import cmds
 from rfm2.ui import widgets
 from rfm2.ui import globals
 
+# Internal
+from enumeration import LightType
 class CreateShadowAovs():
     """Class to create a new AOV for shadows and connect it to the render settings."""
     def __init__(self):
         """Initialize the class."""
-        self.rman_lgt = ["PxrRectLight",
-                        "PxrDomeLight",
-                        "PxrPortalLight",
-                        "PxrDiskLight",
-                        "PxrDistantLight",
-                        "PxrSphereLight",
-                        "PxrCylinderLight"
-                        ]
+        self.rman_lgt = [light.value for light in LightType]
         self.pass_name = "shadow_pass"
         self.open_exr_name = "shadow_exr"
         self.rman_display_channel_ext = "_shadow"
