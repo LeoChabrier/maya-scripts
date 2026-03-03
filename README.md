@@ -20,7 +20,7 @@ This repository contains python scripts for Maya & Renderman.
 
 1. **Clone the repository** :
    ```bash
-   git clone https://github.com/LeoChabrier/deadline-renderman-denoiser.git
+   git clone https://github.com/LeoChabrier/maya-scripts.git
    ```
 
 2. **Copy to Maya Preferences** :
