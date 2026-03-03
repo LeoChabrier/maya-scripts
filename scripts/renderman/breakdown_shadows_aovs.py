@@ -110,9 +110,14 @@ class CreateShadowAovs():
         lgt_list = cmds.ls(typ=self.rman_lgt)
         lgt_transform_list = cmds.listRelatives(lgt_list, parent=True)
         lgt_count = 0
-
+        if not lgt_transform_list:
+            cmds.warning("No lights found in the scene.")
+            return
         for light in lgt_transform_list:
             lgt_parent_list = cmds.listRelatives(light, parent=True)
+            if not lgt_parent_list:
+                cmds.warning(f"No parent found for light: {light}")
+                continue
             for parents in lgt_parent_list:
                 lgt_count += 1
                 cmds.setAttr(f"{light}.lightGroup", f"{parents}", type="string")
