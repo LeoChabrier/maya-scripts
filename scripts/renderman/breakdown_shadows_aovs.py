@@ -63,7 +63,7 @@ class CreateShadowAovs():
             node_name=self.pass_name
         )
 
-        lgt_open_exr = self.create_node(
+        shadow_open_exr = self.create_node(
             node_type="d_openexr",
             node_name=self.open_exr_name,
             attrs={"asrgba": False}
@@ -86,7 +86,7 @@ class CreateShadowAovs():
         next_index = self.get_next_available_index(rman_globals[0], "displays")
 
         cmds.connectAttr(
-            f"{lgt_open_exr}.message",
+            f"{shadow_open_exr}.message",
             f"{shadow_display}.displayType",
         )
 
