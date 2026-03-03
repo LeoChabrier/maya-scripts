@@ -25,7 +25,7 @@ This repository contains python scripts for Maya & Renderman.
 
 2. **Copy to Maya Preferences** :
 
-   Copy scripts forlder to %USERNAME%/maya/<your_maya_version>/prefs
+   Copy _scripts_ folder to _%USERNAME%/maya/<your_maya_version>/prefs_
 
 2. **Example In Maya script editor** :
    ```bash
