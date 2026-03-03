@@ -3,7 +3,7 @@ This repository contains python scripts for Maya & Renderman.
 
 ![RenderMan](https://img.shields.io/badge/RenderMan-23+-orange)
 ![Python](https://img.shields.io/badge/Python-3.7+-green)
-![Maya] (https://img.shields.io/badge/Maya-2018.3+-blue)
+![Maya](https://img.shields.io/badge/Maya-2018.3+-blue)
 
 ## Requirements
 
@@ -24,6 +24,7 @@ This repository contains python scripts for Maya & Renderman.
    ```
 
 2. **Copy to Maya Preferences** :
+
    Copy scripts forlder to %USERNAME%/maya/<your_maya_version>/prefs
 
 2. **Example In Maya script editor** :
