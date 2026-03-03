@@ -11,7 +11,7 @@ from rfm2.ui import widgets
 from rfm2.ui import globals
 
 # Internal
-from enumeration import LightType
+from .enumeration import LightType
 class CreateShadowAovs():
     """Class to create a new AOV for shadows and connect it to the render settings."""
     def __init__(self):
