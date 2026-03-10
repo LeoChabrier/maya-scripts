@@ -1,5 +1,5 @@
 """Utils file containing basic functions for Maya viewport."""
-# pylint:disable = E1111
+# pylint:disable = E1111, E0401
 
 # Third-party
 from maya import cmds
@@ -34,4 +34,3 @@ def set_lod_visiblity():
     sel = cmds.ls(sl=True)
     for obj in sel:
         cmds.setAttr(f'{obj}.lodVisibility', 1)
-
