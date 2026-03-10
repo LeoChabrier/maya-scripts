@@ -94,5 +94,5 @@ class Utils():
             )
 
         elif not is_relative :
-            filepath_to_replace = filename.replace(absolute_path, relative_characters)
+            filepath_to_replace = filename.replace(absolute_path, relative_characters + "/")
             cmds.setAttr(param, filepath_to_replace, type="string")
