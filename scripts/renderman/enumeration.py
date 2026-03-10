@@ -12,3 +12,11 @@ class LightType(Enum):
     DISTANT_LIGHT = "PxrDistantLight"
     SPHERE_LIGHT = "PxrSphereLight"
     CYLINDER_LIGHT = "PxrCylinderLight"
+
+class TextureNodeType(Enum):
+    """Enumeration for Renderman texture nodes types."""
+    PXR_TEXTURE = "PxrTexture"
+    PXR_P_TEXTURE =  "PxrPtexture"
+    PXR_MULTI_TEXTURE = "PxrMultiTexture"
+    PXR_BUMP = "PxrBump"
+    PXR_NORMAL_MAP = "PxrNormalMap"
