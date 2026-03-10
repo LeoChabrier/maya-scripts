@@ -1,0 +1,157 @@
+global proc shelf_MayaScripts () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 1
+        -flexibleWidthValue 32
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "This script creates a new AOV for lights in the scene and connects it to the render settings.\nIt also assigns light groups to the lights based on their parent hierarchy\nand creates corresponding display channels for each light group."
+        -enableBackground 0
+        -backgroundColor 0 0 0
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "from renderman import breakdown_lights_aovs\nbreakdown_lights_aov..."
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Light"
+        -overlayLabelColor 1 1 1
+        -overlayLabelBackColor 0 0 0 0
+        -image "C:/Users/leo/Documents/GitHub/maya-scripts/icons/lights.png"
+        -image1 "C:/Users/leo/Documents/GitHub/maya-scripts/icons/lights.png"
+        -style "iconOnly"
+        -marginWidth 0
+        -marginHeight 1
+        -command "from renderman import breakdown_lights_aovs\nbreakdown_lights_aovs.main()"
+        -sourceType "python"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "his script creates a new AOV for shadows in the scene and connects it to the render settings.\nIt also assigns shadow groups to the lights based on their parent hierarchy\nand creates corresponding display channels for each shadow group."
+        -enableBackground 0
+        -backgroundColor 0 0 0
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "from renderman import breakdown_shadows_aovs\nbreakdown_shadows_a..."
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Shadows"
+        -overlayLabelColor 1 1 1
+        -overlayLabelBackColor 0 0 0 0
+        -image "C:/Users/leo/Documents/GitHub/maya-scripts/icons/shadows.png"
+        -image1 "C:/Users/leo/Documents/GitHub/maya-scripts/icons/shadows.png"
+        -style "iconOnly"
+        -marginWidth 0
+        -marginHeight 1
+        -command "from renderman import breakdown_shadows_aovs\nbreakdown_shadows_aovs.main()"
+        -sourceType "python"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "from renderman.utils import Utils\nUtils()._generic_window(\"Imports AOVs from Json\", callback = Utils().import_aovs_from_json)"
+        -enableBackground 0
+        -backgroundColor 0 0 0
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "from renderman.utils import Utils\nUtils()._generic_window(\"Impor..."
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "AOVs"
+        -overlayLabelColor 1 1 1
+        -overlayLabelBackColor 0 0 0 0
+        -image "pythonFamily.png"
+        -image1 "pythonFamily.png"
+        -style "iconOnly"
+        -marginWidth 0
+        -marginHeight 1
+        -command "from renderman.utils import Utils\nUtils()._generic_window(\"Imports AOVs from Json\", callback = Utils().import_aovs_from_json)"
+        -sourceType "python"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "from renderman.utils import Utils\nUtils()._generic_window(\"Imports AOVs from Json\", callback = Utils().import_render_layers)"
+        -enableBackground 0
+        -backgroundColor 0 0 0
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "from renderman.utils import Utils\nUtils()._generic_window(\"Impor..."
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Layers"
+        -overlayLabelColor 1 1 1
+        -overlayLabelBackColor 0 0 0 0
+        -image "pythonFamily.png"
+        -image1 "pythonFamily.png"
+        -style "iconOnly"
+        -marginWidth 0
+        -marginHeight 1
+        -command "from renderman.utils import Utils\nUtils()._generic_window(\"Imports RenderLayers from Json\", callback = Utils().import_render_layers)"
+        -sourceType "python"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 30
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0
+        -highlightColor 0.321569 0.521569 0.65098
+        -style "shelf"
+        -horizontal 0
+    ;
+
+}

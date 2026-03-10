@@ -21,6 +21,55 @@ class Utils():
     def __init__(self):
         self.textures_nodes_type = [texture_node.value for texture_node in TextureNodeType]
 
+    def _generic_window(self, title:str, callback):
+        """
+        Open a Maya window with a file browser to select a .json file,
+        then call the provided callback with the selected path.
+        Args:
+            title: the window title
+            callback: function to call with the selected Path
+        """
+        window_id = "generic_json_browser"
+
+        if cmds.window(window_id, exists=True):
+            cmds.deleteUI(window_id)
+
+        cmds.window(window_id, title=title, widthHeight=(400, 80))
+        cmds.columnLayout(adjustableColumn=True, rowSpacing=5, columnOffset=("both", 5))
+
+        path_field = cmds.textFieldButtonGrp(
+            label="JSON File:",
+            buttonLabel="Browse",
+            columnWidth3=(60, 270, 60),
+            adjustableColumn=2
+        )
+
+        def browse(*_):
+            result = cmds.fileDialog2(
+                fileFilter="JSON Files (*.json);;All Files (*.*)",
+                dialogStyle=2,
+                fileMode=1,
+                caption="Select a JSON file"
+            )
+            if result:
+                cmds.textFieldButtonGrp(path_field, edit=True, text=result[0])
+
+        def load(*_):
+            file_path = cmds.textFieldButtonGrp(path_field, query=True, text=True)
+            if not file_path:
+                cmds.warning("No file selected.")
+                return
+            path = Path(file_path)
+            if not path.is_file() or path.suffix != ".json":
+                cmds.warning("Please select a valid .json file.")
+                return
+            callback(path)
+            cmds.deleteUI(window_id)
+
+        cmds.textFieldButtonGrp(path_field, edit=True, buttonCommand=browse)
+        cmds.button(label="Load", command=load)
+        cmds.showWindow()
+
     def import_aovs_from_json(self, json_path:Path):
         """
         Import aovs in current scene from a .json preset previously exported by user

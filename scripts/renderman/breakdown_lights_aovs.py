@@ -101,13 +101,13 @@ class CreateLgtAovs():
             cmds.delete(self.pass_name)
 
         # Create the AOV nodes and connect them to the render settings
-        self.connect_aovs()
         lgt_list = cmds.ls(typ=self.rman_lgt)
         lgt_transform_list = cmds.listRelatives(lgt_list, parent=True)
         lgt_count = 0
         if not lgt_transform_list:
             cmds.warning("No lights found in the scene.")
             return
+        self.connect_aovs()
         for light in lgt_transform_list:
             lgt_parent_list = cmds.listRelatives(light, parent=True)
             if not lgt_parent_list:
