@@ -1,0 +1,13 @@
+name: Run Local Command
+
+on:
+  push:
+    branches:
+      - main  # Triggers when merged to main
+
+jobs:
+  run-local:
+    runs-on: self-hosted  # This tells GitHub to use YOUR machine
+    steps:
+      - name: Run your command
+        run: rez-c4d
